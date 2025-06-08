@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación de Matrimonio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1280&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      backdrop-filter: brightness(0.8);
+    }
+
+    .invitacion {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #e0dede;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 1rem 0;
+      color: #eaeaea;
+    }
+
+    .ubicacion {
+      margin-top: 2rem;
+    }
+
+    .ubicacion a {
+      color: #c0e7ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .fecha-hora {
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      color: #f0e5da;
+      font-weight: bold;
+    }
+
+    .cuenta {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #ffd;
+      font-weight: bold;
+    }
+
+    .cita-biblica {
+      font-style: italic;
+      margin-top: 3rem;
+      color: #d6d6d6;
+    }
+  </style>
+</head>
+<body>
+  <div class="invitacion">
+    <h1>Estás Invitado</h1>
+    <p>Después de casi tres años de noviazgo y una década de conocernos,<br />
+    nuestras vidas se han entrelazado como dos caminos que siempre supieron encontrarse.</p>
+
+    <p>Hemos compartido risas, aprendizajes, desafíos y sueños,<br />
+    y hoy damos un paso más: decidimos unir nuestras almas y corazones para siempre.</p>
+
+    <p>Con gratitud en el corazón y alegría en el alma,<br />
+    te invitamos a ser testigo de este momento sagrado y lleno de amor.</p>
+
+    <p>Tu presencia será el regalo más hermoso para nosotros en este nuevo comienzo.</p>
+
+    <div class="fecha-hora">
+      <p>📅 Jueves 15 de Enero de 2026<br />
+      🕙 A las 10:00 hrs</p>
+    </div>
+
+    <div class="ubicacion">
+      <p><strong>Ubicación:</strong></p>
+      <a href="https://maps.app.goo.gl/HytPkc6jPrknAXCHA" target="_blank">
+        Sede Vecinal Los Naranjos, San Javier
+      </a>
+    </div>
+
+    <div class="cuenta">
+      <p>Faltan:</p>
+      <div id="countdown">Cargando cuenta regresiva...</div>
+    </div>
+
+    <div class="cita-biblica">
+      <p>“...y serán una sola carne.” — Génesis 2:24</p>
+    </div>
+  </div>
+
+  <script>
+    // Fecha del evento: 15 de enero de 2026 a las 10:00 AM
+    const evento = new Date("2026-01-15T10:00:00");
+    const countdownEl = document.getElementById("countdown");
+
+    function actualizarCuentaRegresiva() {
+      const ahora = new Date();
+      const diferencia = evento - ahora;
+
+      if (diferencia <= 0) {
+        countdownEl.textContent = "¡El gran día ha llegado!";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferencia / 1000 / 60) % 60);
+      const segundos = Math.floor((diferencia / 1000) % 60);
+
+      countdownEl.textContent = `${dias} días, ${horas} horas, ${minutos} minutos y ${segundos} segundos`;
+    }
+
+    actualizarCuentaRegresiva();
+    setInterval(actualizarCuentaRegresiva, 1000);
+  </script>
+</body>
+</html>
